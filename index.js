@@ -1,8 +1,9 @@
 // javascript class is updated
 
 class Circle {
-    constructor(radius) {
+    constructor(radius, color) {
         this.radius = radius;
+        this.color = color !== undefined ? color : 'undefined';
     }
 
     getRadius() {
@@ -20,18 +21,43 @@ class Circle {
     getCircumference() {
         return 2 * Math.PI * this.radius;
     }
+
+    setColor(color) {
+        this.color = color;
+    }
+
+    getColor() {
+        return this.color;
+    }
+
+    toString() {
+        return `Circle(radius: ${this.radius}, color: ${this.color})`;
+    }
 }
 
 // Example usage:
-const myCircle = new Circle(5);
-console.log('Radius:', myCircle.getRadius());
-console.log('Area:', myCircle.getArea());
-console.log('Circumference:', myCircle.getCircumference());
+const circleWithRadiusOnly = new Circle(5);
+console.log('Radius:', circleWithRadiusOnly.getRadius());
+console.log('Area:', circleWithRadiusOnly.getArea());
+console.log('Circumference:', circleWithRadiusOnly.getCircumference());
+console.log('Color:', circleWithRadiusOnly.getColor());
+console.log('String Representation:', circleWithRadiusOnly.toString());
 
-myCircle.setRadius(10);
-console.log('Updated Radius:', myCircle.getRadius());
-console.log('Updated Area:', myCircle.getArea());
-console.log('Updated Circumference:', myCircle.getCircumference());
+const circleWithRadiusAndColor = new Circle(7, 'green');
+console.log('Radius:', circleWithRadiusAndColor.getRadius());
+console.log('Area:', circleWithRadiusAndColor.getArea());
+console.log('Circumference:', circleWithRadiusAndColor.getCircumference());
+console.log('Color:', circleWithRadiusAndColor.getColor());
+console.log('String Representation:', circleWithRadiusAndColor.toString());
+
+circleWithRadiusAndColor.setRadius(10);
+circleWithRadiusAndColor.setColor('blue');
+console.log('Updated Radius:', circleWithRadiusAndColor.getRadius());
+console.log('Updated Area:', circleWithRadiusAndColor.getArea());
+console.log('Updated Circumference:', circleWithRadiusAndColor.getCircumference());
+console.log('Updated Color:', circleWithRadiusAndColor.getColor());
+console.log('Updated String Representation:', circleWithRadiusAndColor.toString());
+
 
 
 
